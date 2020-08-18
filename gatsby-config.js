@@ -12,6 +12,14 @@ module.exports = {
     },
   },
   plugins: [
+    `gatsby-plugin-layout`,
+    `gatsby-plugin-sass`,
+    // {
+    //   resolve: `gatsby-plugin-sass`,
+    //   options: {
+    //     includePaths: ["react-awesome-slider/src/styled/cube-animation.scss", "absolute/path/b"],
+    //   },
+    // },
     {
       resolve: `gatsby-source-filesystem`,
       options: {

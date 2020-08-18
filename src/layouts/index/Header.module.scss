@@ -1,0 +1,35 @@
+.header-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  z-index: 1;
+  color: white;
+
+  & h2 {
+    margin: 0;
+    color: white;
+    text-decoration: none;
+  }
+}
+
+.nav-link-wrapper {
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  width: 250px;
+  a {
+    color: white;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+}
+
+.nav-link {
+  padding: 10px 25px;
+}
+
+.left {
+  float: left;
+}

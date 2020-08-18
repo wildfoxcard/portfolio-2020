@@ -2,13 +2,13 @@ import React, { useState, useReducer, useEffect } from "react"
 import { Link, StaticQuery, graphql } from "gatsby"
 import queryString from "query-string"
 
-import Layout from "../components/layout"
 import SEO from "../components/seo"
 import BigSearchDisplay from "../components/Search/BigSearchDisplay"
 
 export const BlogContext = React.createContext()
 
 const BlogIndex = ({ data, location }) => {
+  console.log('data', data)
   const siteTitle = data.site.siteMetadata.title
   const sitePosts = data.allMarkdownRemark.edges
 
@@ -42,14 +42,8 @@ const BlogIndex = ({ data, location }) => {
   }, [activeTag])
 
   return (
-    <BlogContext.Provider
-      value={{ posts, tags, activeTag, setActiveTag }}
-    >
-      <Layout
-        location={location}
-        title={siteTitle}
-        titleOnClick={() => setActiveTag(undefined)}
-      >
+    <BlogContext.Provider value={{ posts, tags, activeTag, setActiveTag }}>
+      <div>
         <SEO title="All posts" />
         <BigSearchDisplay />
         {posts.map(({ node }) => {
@@ -58,7 +52,10 @@ const BlogIndex = ({ data, location }) => {
             <article key={`/blog/${node.fields.slug}`}>
               <header>
                 <h3>
-                  <Link style={{ boxShadow: `none` }} to={`/blog/${node.fields.slug}`}>
+                  <Link
+                    style={{ boxShadow: `none` }}
+                    to={`/blog/${node.fields.slug}`}
+                  >
                     {title}
                   </Link>
                 </h3>
@@ -74,7 +71,7 @@ const BlogIndex = ({ data, location }) => {
             </article>
           )
         })}
-      </Layout>
+      </div>
     </BlogContext.Provider>
   )
 }

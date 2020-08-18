@@ -1,0 +1,9 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+
+.awssld__content{
+    min-height: 100vh;
+    display: block;
+}

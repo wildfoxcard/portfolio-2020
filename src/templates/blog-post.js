@@ -2,19 +2,17 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 
 import Bio from "../components/bio"
-import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { rhythm, scale } from "../utils/typography"
 import SmallSearchDisplay from "../components/Search/SmallSearchDisplay"
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata.title
   const { previous, next } = pageContext
-  const tags = data?.markdownRemark?.frontmatter?.tags;
-  
+  const tags = data?.markdownRemark?.frontmatter?.tags
+
   return (
-    <Layout location={location} title={siteTitle}>
+    <div>
       <SEO
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
@@ -22,13 +20,8 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
       <article>
         <SmallSearchDisplay tags={tags} />
         <header>
-          <h1>
-            {post.frontmatter.title}
-          </h1>
-          <p>
-            {post.frontmatter.date}
-          </p>
-          
+          <h1>{post.frontmatter.title}</h1>
+          <p>{post.frontmatter.date}</p>
         </header>
         <section dangerouslySetInnerHTML={{ __html: post.html }} />
         <hr />
@@ -55,7 +48,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           </li>
         </ul>
       </nav>
-    </Layout>
+    </div>
   )
 }
 
