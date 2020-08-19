@@ -1,4 +1,6 @@
 import React from "react"
+
+//components
 import Header from "../layouts/index/Header"
 
 //styles
@@ -24,6 +26,8 @@ const demos = props => {
               <h3>Demo</h3>
               <div className={`${layoutStyle.site}`}>
                 <h2>To Do App</h2>
+                <p>A demo design for mobile and desktop responsiveness.</p>
+                
               </div>
             </div>
           </div>
@@ -35,6 +39,7 @@ const demos = props => {
               <h3>Demo</h3>
               <div className={`${layoutStyle.site}`}>
                 <h2>Quiz App</h2>
+                <p>Create your own or try my quiz.</p>
               </div>
             </div>
             {/* <img src={tempTodo} /> */}

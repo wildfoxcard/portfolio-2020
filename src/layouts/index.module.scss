@@ -67,9 +67,9 @@
   justify-self: start;
   border-radius: 10px 10px 0 0;
 
-  -webkit-box-shadow: 13px 11px 0px -2px #6b68686b;
-  -moz-box-shadow: 13px 11px 0px -2px #6b68686b;
-  box-shadow: 13px 11px 0px -2px #6b68686b;
+  -webkit-box-shadow: 13px 11px 0px -2px #82735cad;
+  -moz-box-shadow: 13px 11px 0px -2px #82735cad;
+  box-shadow: 13px 11px 0px -2px #82735cad;
 
   width: calc(100% - 30px);
   margin: 15px;
@@ -78,7 +78,7 @@
     background-color: #ddd;
     border-radius: 10px 10px 0 0;
     display: grid;
-    grid-template-columns: 15px 30px 30px 30px auto 105px;
+    grid-template-columns: 10px 20px 20px 20px auto 70px;
     grid-template-rows: 30px;
 
     .site {
@@ -104,8 +104,8 @@
     }
 
     .red-circle {
-      width: 20px;
-      height: 20px;
+      width: 15px;
+      height: 15px;
       border-radius: 50%;
       background-color: #ff5f57;
       grid-row: 1;
@@ -114,8 +114,8 @@
     }
 
     .yellow-circle {
-      width: 20px;
-      height: 20px;
+      width: 15px;
+      height: 15px;
       border-radius: 50%;
       background-color: #ffbd2e;
       grid-row: 1;
@@ -124,8 +124,8 @@
     }
 
     .green-circle {
-      width: 20px;
-      height: 20px;
+      width: 15px;
+      height: 15px;
       border-radius: 50%;
       background-color: #28ca41;
       grid-row: 1;
