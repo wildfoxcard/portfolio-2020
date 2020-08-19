@@ -1,5 +1,6 @@
 import React, { useContext } from "react"
 import { Link } from "gatsby"
+import getMenu from "../../utils/getMenu"
 
 //styles
 import s from "./Header.module.scss"
@@ -7,64 +8,27 @@ import s from "./Header.module.scss"
 // images
 import wildFoxCardImage from "../../images/wild-fox-card.png"
 
-//state
-import { SlideSelected } from "../index"
-
 const Header = () => {
-  const context = useContext(SlideSelected)
   return (
     <header className={`${s.headerWrapper}`}>
-      <div className={`${s.left}`}>
-        <img src={wildFoxCardImage} style={{ width: "50px" }} />
+      <div className={`${s.left} ${s.imageWrapper}`}>
+        <img src={wildFoxCardImage} />
       </div>
       <div className={`${s.left}`}>
-        <Link to={"/code-bootcamp/"} onClick={() => context.setCurrentIndex(1)}>
-          <h2>Wild Fox Card</h2>
-        </Link>
+        <h2>Wild Fox Card</h2>
         <div className={`${s.navLinkWrapper}`}>
-          <Link
-            to={"/code-bootcamp/"}
-            className={`${s.navLink}`}
-            onClick={() => context.setCurrentIndex(1)}
-          >
-            Code Bootcamp
-          </Link>
-          <Link
-            to={"/demos/"}
-            className={`${s.navLink}`}
-            onClick={() => context.setCurrentIndex(2)}
-          >
-            Demos
-          </Link>
-
-          <Link
-            to={"/projects/"}
-            className={`${s.navLink}`}
-            onClick={() => context.setCurrentIndex(3)}
-          >
-            Projects
-          </Link>
-          <Link
-            to={"/blogs/"}
-            className={`${s.navLink}`}
-            onClick={() => context.setCurrentIndex(4)}
-          >
-            Blog
-          </Link>
-          <Link
-            to={"/about"}
-            className={`${s.navLink}`}
-            onClick={() => context.setCurrentIndex(5)}
-          >
-            About
-          </Link>
-          <Link
-            to={"/contact"}
-            className={`${s.navLink}`}
-            onClick={() => context.setCurrentIndex(6)}
-          >
-            Contact
-          </Link>
+          {getMenu().map((item, i) => {
+            return (
+              <Link
+                to={item.link}
+                className={`${s.navLink}`}
+                activeClassName={`${s.active}`}
+                key={i}
+              >
+                {item.title}
+              </Link>
+            )
+          })}
         </div>
       </div>
     </header>

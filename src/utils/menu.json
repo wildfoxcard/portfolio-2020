@@ -1,0 +1,34 @@
+{
+    "items": [
+        {
+            "title": "Home",
+            "link": "/",
+            "animation": "cubeAnimation"
+        },
+        {
+            "title": "Demos",
+            "link": "/demos/",
+            "animation": "fallAnimation"
+        },
+        {
+            "title": "Projects",
+            "link": "/projects/",
+            "animation": "foldOutAnimation"
+        },
+        {
+            "title": "Blog",
+            "link": "/blog/",
+            "animation": "openAnimation"
+        },
+        {
+            "title": "Code Bootcamp",
+            "link": "/code-bootcamp/",
+            "animation": "cubeAnimation"
+        },
+        {
+            "title": "Contact",
+            "link": "/contact/",
+            "animation": "scaleOutAnimation"
+        }
+    ]
+}

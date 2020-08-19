@@ -4,15 +4,7 @@ import { Link } from "gatsby"
 
 //components
 import Header from "./index/Header"
-
-//pages
-import IndexPage from "../pages/index"
-import CodeBootcampPage from "../pages/code-bootcamp"
-import DemoPage from "../pages/demos"
-import ProjectPage from "../pages/projects"
-import BlogPage from "../pages/blog"
-import AboutPage from "../pages/about"
-import ContactPage from "../pages/contact"
+import getMenu, { getSlide, getComponents } from "../utils/getMenu"
 
 //styles
 import CoreStyles from "react-awesome-slider/src/core/styles.scss"
@@ -28,43 +20,23 @@ export const SlideSelected = React.createContext()
 const Layout = props => {
   const { location } = props
 
-  let selectedIndex = 0
-
-  if (location.pathname === "/code-bootcamp/") {
-    selectedIndex = 1
-  }
-
-  if (location.pathname === "/demos/") {
-    selectedIndex = 2
-  }
-
-  if (location.pathname === "/projects/") {
-    selectedIndex = 3
-  }
-
-  if (location.pathname === "/blog/") {
-    selectedIndex = 4
-  }
-
-  if (location.pathname === "/about/") {
-    selectedIndex = 5
-  }
-
-  if (location.pathname === "/contact/") {
-    selectedIndex = 6
-  }
+  let selectedIndex = getSlide(location)
 
   //states
   const [currentIndex, setCurrentIndex] = useState(selectedIndex)
-  const [animation, setAnimation] = useState('cubeAnimation') //cubeAnimation, fallAnimation, foldOutAnimation, openAnimation, scaleOutAnimation
+  const [animation, setAnimation] = useState("cubeAnimation") //cubeAnimation, fallAnimation, foldOutAnimation, openAnimation, scaleOutAnimation
 
-  window.setAnimation = setAnimation;
+  useEffect(() => {
+    const index = getSlide(location)
+    setCurrentIndex(index)
+    setAnimation(getMenu()[index].animation)
+  }, [location])
+
   return (
     <>
-      <SlideSelected.Provider value={{ currentIndex, setCurrentIndex }}>
-        <div className={`page-header__wrapper`}>
-          <Header location={location}></Header>
-        </div>
+      <SlideSelected.Provider
+        value={{ currentIndex, setCurrentIndex, animation, setAnimation }}
+      >
         <AwesomeSlider
           animation={animation}
           cssModule={[
@@ -94,27 +66,13 @@ const Layout = props => {
             // }
           }}
         >
-          <div className={`${s.fullPage} ${s.scene0}`}>
-            <IndexPage {...props} />
-          </div>
-          <div className={`${s.fullPage} ${s.scene1}`}>
-            <CodeBootcampPage {...props} />
-          </div>
-          <div className={`${s.fullPage} ${s.scene2}`}>
-            <DemoPage {...props} />
-          </div>
-          <div className={`${s.fullPage} ${s.scene3}`}>
-            <ProjectPage {...props} />
-          </div>
-          <div className={`${s.fullPage} ${s.scene4}`}>
-            <BlogPage {...props} />
-          </div>
-          <div className={`${s.fullPage} ${s.scene5}`}>
-            <AboutPage {...props} />
-          </div>
-          <div className={`${s.fullPage} ${s.scene6}`}>
-            <ContactPage {...props} />
-          </div>
+          {getComponents(props).map((comp, i) => {
+            return (
+              <div className={`${s.fullPage} ${s[`scene${i}`]}`} key={i}>
+                {comp}
+              </div>
+            )
+          })}
           {/* {props.children} */}
         </AwesomeSlider>
         {/* <main> */}

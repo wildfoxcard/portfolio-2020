@@ -1,7 +1,15 @@
 import React from "react"
 
-const projects = () => {
-  return <h1>Projects</h1>
+//components
+import Header from "../layouts/index/Header"
+
+const projects = props => {
+  return (
+    <>
+      <Header {...props}></Header>
+      <h1>Projects</h1>
+    </>
+  )
 }
 
 export default projects

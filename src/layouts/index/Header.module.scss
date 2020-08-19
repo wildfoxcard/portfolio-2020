@@ -4,21 +4,33 @@
   left: 0;
   right: 0;
 
-  z-index: 1;
+  z-index: 10;
   color: white;
+  padding-top: 10px;
 
-  & h2 {
-    margin: 0;
-    color: white;
+  & a {
     text-decoration: none;
   }
+
+  & h2 {
+    margin: 10px 0 10px 19px;
+    color: white;
+  }
+}
+
+.image-wrapper {
+    margin-left: 40px;
+    img {
+        width: 80px;
+    }
+
 }
 
 .nav-link-wrapper {
   display: flex;
   justify-content: space-between;
   color: white;
-  width: 250px;
+  width: 700px;
   a {
     color: white;
     text-decoration: none;
@@ -28,6 +40,14 @@
 
 .nav-link {
   padding: 10px 25px;
+
+  &.active {
+    background-color: #0000005c;
+  }
+
+  &:hover {
+    background-color: #0000005c;
+  }
 }
 
 .left {

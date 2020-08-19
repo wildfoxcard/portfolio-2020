@@ -1,7 +1,15 @@
 import React from "react"
 
-const codeBootcamp = () => {
-  return <h1>Code Bootcamp</h1>
+//components
+import Header from "../layouts/index/Header"
+
+const codeBootcamp = props => {
+  return (
+    <>
+      <Header {...props}></Header>
+      <h1>Code Bootcamp</h1>
+    </>
+  )
 }
 
 export default codeBootcamp

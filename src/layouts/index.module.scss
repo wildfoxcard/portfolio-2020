@@ -2,7 +2,7 @@
   width: 100vw;
   min-height: 100vh;
   position: relative;
-  display: flex;
+  color: white;
 }
 
 .overlay-settings {
@@ -12,23 +12,135 @@
 }
 
 .scene-0 {
-  background-color: #fb6a2b;
-}
-.scene-1 {
-  background-color: #fbac69;
-}
-.scene-2 {
-  background-color: #fee2b3;
-}
-.scene-3 {
-  background-color: #72b1a6;
-}
-.scene-4 {
-  background-color: #028c99;
-}
-.scene-5 {
-  background-color: #016b93;
-}
-.scene-6 {
   background-color: #032253;
+}
+
+.scene-1 {
+  background-color: rgb(41, 44, 53);
+}
+
+.scene-2 {
+  background-color: #4158b4;
+}
+
+.scene-3 {
+  background-color: rgb(255, 111, 94);
+}
+
+.scene-4 {
+  background-color: #4158b4;
+}
+
+.scene-5 {
+  background-color: rgb(41, 44, 53);
+}
+
+.text-center-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.content {
+  display: block;
+  // justify-content: center;
+  padding: 150px 15% 10px 15%;
+
+  & p,
+  & h1,
+  & h2,
+  & h3,
+  & h4,
+  & h5,
+  & h6 {
+    padding-left: 15px;
+  }
+}
+
+.list {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+.list-item {
+  justify-self: start;
+  border-radius: 10px 10px 0 0;
+
+  -webkit-box-shadow: 13px 11px 0px -2px #6b68686b;
+  -moz-box-shadow: 13px 11px 0px -2px #6b68686b;
+  box-shadow: 13px 11px 0px -2px #6b68686b;
+
+  width: calc(100% - 30px);
+  margin: 15px;
+
+  & .browser {
+    background-color: #ddd;
+    border-radius: 10px 10px 0 0;
+    display: grid;
+    grid-template-columns: 15px 30px 30px 30px auto 105px;
+    grid-template-rows: 30px;
+
+    .site {
+      background-color: blue;
+      grid-column-start: 1;
+      grid-column-end: span 6;
+      background-color:#d47d3a;
+      min-height: 250px;
+
+      & h2, & p {
+        color: black;
+      }
+    }
+
+    
+    & h3 {
+      margin: 0;
+      padding: 5px 0;
+      text-align: center;
+      color: #8a8a8a;
+      grid-row: 1;
+      grid-column: 5;
+    }
+
+    .red-circle {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-color: #ff5f57;
+      grid-row: 1;
+      grid-column: 2;
+      margin: auto;
+    }
+
+    .yellow-circle {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-color: #ffbd2e;
+      grid-row: 1;
+      grid-column: 3;
+      margin: auto;
+    }
+
+    .green-circle {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-color: #28ca41;
+      grid-row: 1;
+      grid-column: 4;
+      margin: auto;
+    }
+  }
+
+  & img {
+    width: 100%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .list {
+    grid-template-columns: 100%;
+  }
 }
