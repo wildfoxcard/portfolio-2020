@@ -103,6 +103,7 @@ function Search({ searchIndex }) {
       getSuggestionValue={getSuggestionValue}
       renderSuggestion={renderSuggestion}
       inputProps={inputProps}
+      className={`form-control`}
     />
   )
 }

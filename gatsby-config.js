@@ -12,8 +12,25 @@ module.exports = {
     },
   },
   plugins: [
-    `gatsby-plugin-layout`,
+    {
+      resolve: `gatsby-plugin-layout`,
+      options: {
+        component: require.resolve(`./src/layouts/LayoutMain`),
+      },
+    },
     `gatsby-plugin-sass`,
+
+    {
+      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      options: {
+        fonts: [
+          {
+            family: `Do Hyeon`,
+            variants: [`400`, `700`],
+          }
+        ],
+      },
+    },
     // {
     //   resolve: `gatsby-plugin-sass`,
     //   options: {
@@ -94,18 +111,17 @@ module.exports = {
           // For any node of type MarkdownRemark, list how to resolve the fields` values
           MarkdownRemark: {
             title: node => {
-              console.log(`node title: ${node.frontmatter.title}`, 'node', node)
+              console.log(`node title: ${node.frontmatter.title}`, "node", node)
               return node.frontmatter.title
             },
             description: node => node.frontmatter.description,
             tags: node => node.frontmatter.tags,
             path: node => node.frontmatter.path,
-            slug: node => node.fields.slug
+            slug: node => node.fields.slug,
           },
         },
         // Optional filter to limit indexed nodes
-        filter: (node, getNode) =>
-          node.frontmatter.tags !== 'exempt',
+        filter: (node, getNode) => node.frontmatter.tags !== "exempt",
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

@@ -1,15 +1,13 @@
 import React from "react"
 
 //components
-import Header from "../layouts/index/Header"
+import Header from "../layouts/slider/Header"
 
-//styles
-import layoutStyle from "../layouts/index.module.scss"
 const projects = props => {
   return (
     <>
       <Header {...props}></Header>
-      <div className={`${layoutStyle.content}`}>
+      <div className={`content`}>
         <h1>Projects</h1>
         <h3>Large Projects</h3>
         <p>
@@ -19,26 +17,26 @@ const projects = props => {
           completion.
         </p>
         {/* <p>PRESS BUTTONS AND EXPLORE MY DEMO APPS.</p> */}
-        <div className={`${layoutStyle.list}`}>
-          <div className={`${layoutStyle.listItem}`}>
-            <div className={`${layoutStyle.browser}`}>
-              <div className={`${layoutStyle.redCircle}`}></div>
-              <div className={`${layoutStyle.yellowCircle}`}></div>
-              <div className={`${layoutStyle.greenCircle}`}></div>
+        <div className={`list`}>
+          <div className={`list-item`}>
+            <div className={`browser`}>
+              <div className={`red-circle`}></div>
+              <div className={`yellow-circle`}></div>
+              <div className={`green-circle`}></div>
               <h3>Large Project</h3>
-              <div className={`${layoutStyle.site}`}>
+              <div className={`site`}>
                 <h2>To Do App</h2>
                 <p>A demo design for mobile and desktop responsiveness.</p>
               </div>
             </div>
           </div>
-          <div className={`${layoutStyle.listItem}`}>
-            <div className={`${layoutStyle.browser}`}>
-              <div className={`${layoutStyle.redCircle}`}></div>
-              <div className={`${layoutStyle.yellowCircle}`}></div>
-              <div className={`${layoutStyle.greenCircle}`}></div>
+          <div className={`list-item`}>
+            <div className={`browser`}>
+              <div className={`red-circle`}></div>
+              <div className={`yellow-circle`}></div>
+              <div className={`green-circle`}></div>
               <h3>Large Project</h3>
-              <div className={`${layoutStyle.site}`}>
+              <div className={`site`}>
                 <h2>Quiz App</h2>
                 <p>Create your own or try my quiz.</p>
               </div>
@@ -50,26 +48,26 @@ const projects = props => {
         <p>
           Sometimes smaller is better. This section shows off skills using small snippets of code.
         </p>
-        <div className={`${layoutStyle.list}`}>
-          <div className={`${layoutStyle.listItem}`}>
-            <div className={`${layoutStyle.browser}`}>
-              <div className={`${layoutStyle.redCircle}`}></div>
-              <div className={`${layoutStyle.yellowCircle}`}></div>
-              <div className={`${layoutStyle.greenCircle}`}></div>
+        <div className={`list`}>
+          <div className={`list-item`}>
+            <div className={`browser`}>
+              <div className={`red-circle`}></div>
+              <div className={`yellow-circle`}></div>
+              <div className={`green-circle`}></div>
               <h3>Fiddle</h3>
-              <div className={`${layoutStyle.site}`}>
+              <div className={`$site`}>
                 <h2>To Do App</h2>
                 <p>A demo design for mobile and desktop responsiveness.</p>
               </div>
             </div>
           </div>
-          <div className={`${layoutStyle.listItem}`}>
-            <div className={`${layoutStyle.browser}`}>
-              <div className={`${layoutStyle.redCircle}`}></div>
-              <div className={`${layoutStyle.yellowCircle}`}></div>
-              <div className={`${layoutStyle.greenCircle}`}></div>
+          <div className={`list-item`}>
+            <div className={`browser`}>
+              <div className={`red-circle`}></div>
+              <div className={`yellow-circle`}></div>
+              <div className={`green-circle`}></div>
               <h3>Fiddle</h3>
-              <div className={`${layoutStyle.site}`}>
+              <div className={`site`}>
                 <h2>Quiz App</h2>
                 <p>Create your own or try my quiz.</p>
               </div>

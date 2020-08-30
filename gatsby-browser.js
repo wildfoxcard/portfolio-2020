@@ -2,7 +2,8 @@
 // import "typeface-montserrat"
 // import "typeface-merriweather"
 
-import "./src/styles/global.css"
+import "./src/layouts/main.scss"
+
 
 import {globalHistory} from '@reach/router';
 

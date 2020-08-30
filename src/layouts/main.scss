@@ -1,0 +1,301 @@
+.full-page {
+  width: 100vw;
+  min-height: 100vh;
+  position: relative;
+  overflow-y: auto;
+}
+
+.awssld__container {
+  height: 100%;
+}
+
+.awssld__content {
+  display: block !important;
+}
+
+.overlay-settings {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+}
+
+.scene-0 {
+  background-color: #032253;
+}
+
+.scene-1 {
+  background-color: rgb(41, 44, 53);
+}
+
+.scene-2 {
+  background-color: #4158b4;
+}
+
+.scene-3 {
+  background-color: rgb(255, 111, 94);
+}
+
+.scene-4 {
+  background-color: #4158b4;
+}
+
+.scene-5 {
+  background-color: rgb(41, 44, 53);
+}
+
+.clear-top {
+  padding-top:150px;
+}
+
+.react-autosuggest__input {
+  @extend .form-control;
+}
+
+// .text-center-center {
+//   display: flex;
+//   height: 100vh;
+//   flex-direction: column;
+//   justify-content: center;
+//   text-align: center;
+// }
+
+// .content {
+//   display: block;
+//   // justify-content: center;
+//   padding: 150px 15% 10px 15%;
+
+//   & p,
+//   & h1,
+//   & h2,
+//   & h3,
+//   & h4,
+//   & h5,
+//   & h6 {
+//     padding-left: 15px;
+//   }
+// }
+
+// .list {
+//   display: grid;
+//   grid-template-columns: 50% 50%;
+// }
+
+// .list-item {
+//   justify-self: start;
+//   border-radius: 10px 10px 0 0;
+
+//   -webkit-box-shadow: 10px 10px 20px 0px #63636385;
+//   -moz-box-shadow: 10px 10px 20px 0px #63636385;
+//   box-shadow: 10px 10px 20px 0px #63636385;
+
+//   width: calc(100% - 30px);
+//   margin: 15px;
+
+//   & .browser {
+//     background-color: #ddd;
+//     border-radius: 10px 10px 0 0;
+//     display: grid;
+//     grid-template-columns: 10px 20px 20px 20px auto 70px;
+//     grid-template-rows: 30px;
+
+//     .site {
+//       grid-column-start: 1;
+//       grid-column-end: span 6;
+//       background-color:#639ed8;
+//       min-height: 250px;
+
+//       & h2, & p {
+//         color: black;
+//       }
+
+//       .tags {
+//         display: block;
+//         padding-left: 15px;
+
+//         li {
+//           background-color: #093c6b;
+//           padding: 5px 10px;
+//           border: 1px solid black;
+//           margin: 5px 5px 5px 0;
+//           display: inline-block;
+//         }
+//       }
+//     }
+
+    
+//     & h3 {
+//       margin: 0;
+//       padding: 5px 0;
+//       text-align: center;
+//       color: #8a8a8a;
+//       grid-row: 1;
+//       grid-column: 5;
+//     }
+
+//     .red-circle {
+//       width: 15px;
+//       height: 15px;
+//       border-radius: 50%;
+//       background-color: #ff5f57;
+//       grid-row: 1;
+//       grid-column: 2;
+//       margin: auto;
+//     }
+
+//     .yellow-circle {
+//       width: 15px;
+//       height: 15px;
+//       border-radius: 50%;
+//       background-color: #ffbd2e;
+//       grid-row: 1;
+//       grid-column: 3;
+//       margin: auto;
+//     }
+
+//     .green-circle {
+//       width: 15px;
+//       height: 15px;
+//       border-radius: 50%;
+//       background-color: #28ca41;
+//       grid-row: 1;
+//       grid-column: 4;
+//       margin: auto;
+//     }
+//   }
+
+//   & img {
+//     width: 100%;
+//   }
+// }
+
+// @media (max-width: 1024px) {
+//   .list {
+//     grid-template-columns: 100%;
+//   }
+// }
+
+
+
+
+
+// https://codepen.io/giana/pen/BZaGyP
+/*
+  https://developer.mozilla.org/en/docs/Web/CSS/box-shadow
+  box-shadow: [inset?] [top] [left] [blur] [size] [color];
+
+  Tips:
+    - We're setting all the blurs to 0 since we want a solid fill.
+    - Add the inset keyword so the box-shadow is on the inside of the element
+    - Animating the inset shadow on hover looks like the element is filling in from whatever side you specify ([top] and [left] accept negative values to become [bottom] and [right])
+    - Multiple shadows can be stacked
+    - If you're animating multiple shadows, be sure to keep the same number of shadows so the animation is smooth. Otherwise, you'll get something choppy.
+*/
+
+// Animate the size, inside
+.fill:hover,
+.fill:focus {
+  box-shadow: inset 0 0 0 2em var(--hover);
+}
+
+// Animate the size, outside
+.pulse:hover, 
+.pulse:focus {
+  animation: pulse 1s;
+  box-shadow: 0 0 0 2em rgba(#fff,0);
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 var(--hover); }
+}
+
+// Stack multiple shadows, one from the left, the other from the right
+.close:hover,
+.close:focus {
+  box-shadow: 
+    inset -3.5em 0 0 0 var(--hover),
+    inset 3.5em 0 0 0 var(--hover);  
+}
+
+// Size can also be negative; see how it's smaller than the element
+.raise:hover,
+.raise:focus {
+  box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
+  transform: translateY(-0.25em);
+}
+
+// Animating from the bottom
+.up:hover,
+.up:focus {
+  box-shadow: inset 0 -3.25em 0 0 var(--hover);
+}
+
+// And from the left
+.slide:hover,
+.slide:focus {
+  box-shadow: inset 6.5em 0 0 0 var(--hover);
+}
+
+// Multiple shadows, one on the outside, another on the inside
+.offset { 
+  font-weight: 900; 
+  box-shadow: 
+    0.3em 0.3em 0 0 var(--color),
+    inset 0.3em 0.3em 0 0 var(--color);
+  
+  &:hover,
+  &:focus {
+    box-shadow: 
+      0 0 0 0 var(--hover),
+      inset 6em 3.5em 0 0 var(--hover);
+  }
+}
+
+//=== Set button colors
+// If you wonder why use Sass vars or CSS custom properties...
+  // Make a map with the class names and matching colors
+$colors: (
+  fill: #a972cb,
+  pulse: #ef6eae, 
+  close: #ff7f82, 
+  raise: #ffa260, 
+  up: #e4cb58, 
+  slide: #8fc866, 
+  offset: #093c6b
+);
+
+// Sass variables compile to a static string; CSS variables are dynamic and inherited
+  // Loop through the map and set CSS custom properties using Sass variables
+@each $button, $color in $colors {
+  .#{$button} {
+    --color: #{$color};
+    --hover: #{adjust-hue($color, 45deg)};
+  }
+}
+
+// Now every button will have different colors as set above. We get to use the same structure, only changing the custom properties.
+button {  
+  color: var(--color);
+  transition: 0.25s;
+  
+  &:hover,
+  &:focus { 
+    border-color: var(--hover);
+    color: #fff;
+  }
+}
+
+// Basic button styles
+button {
+  background: none;
+  border: 2px solid;
+  font: inherit;
+  line-height: 1;
+  margin: 0.5em;
+  padding: 1em 2em;
+}
+
+.buttons {
+  margin-left: 15px;
+}
+
+@import "bootstrap/scss/bootstrap"

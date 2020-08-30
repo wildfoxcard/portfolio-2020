@@ -1,14 +1,47 @@
 import React, { useState, useReducer, useEffect } from "react"
-import { Link, StaticQuery, graphql } from "gatsby"
+import { Link, useStaticQuery, graphql } from "gatsby"
+import { Card } from "react-bootstrap"
 import queryString from "query-string"
 
 import SEO from "../components/seo"
 import BigSearchDisplay from "../components/Search/BigSearchDisplay"
 
+//component
+import Header from "../layouts/slider/Header"
+
 export const BlogContext = React.createContext()
 
-const BlogIndex = ({ data, location }) => {
-  console.log('data', data)
+const BlogIndex = props => {
+  const { location } = props
+
+  const data = useStaticQuery(
+    graphql`
+      query {
+        site {
+          siteMetadata {
+            title
+          }
+        }
+        allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+          edges {
+            node {
+              excerpt
+              fields {
+                slug
+              }
+              frontmatter {
+                date(formatString: "MMMM DD, YYYY")
+                title
+                description
+                tags
+              }
+            }
+          }
+        }
+      }
+    `
+  )
+
   const siteTitle = data.site.siteMetadata.title
   const sitePosts = data.allMarkdownRemark.edges
 
@@ -43,63 +76,84 @@ const BlogIndex = ({ data, location }) => {
 
   return (
     <BlogContext.Provider value={{ posts, tags, activeTag, setActiveTag }}>
-      <div>
-        <SEO title="All posts" />
-        <BigSearchDisplay />
-        {posts.map(({ node }) => {
-          const title = node.frontmatter.title || node.fields.slug
-          return (
-            <article key={`/blog/${node.fields.slug}`}>
-              <header>
-                <h3>
-                  <Link
-                    style={{ boxShadow: `none` }}
-                    to={`/blog/${node.fields.slug}`}
-                  >
-                    {title}
-                  </Link>
-                </h3>
-                <small>{node.frontmatter.date}</small>
-              </header>
-              <section>
-                <p
-                  dangerouslySetInnerHTML={{
-                    __html: node.frontmatter.description || node.excerpt,
-                  }}
-                />
-              </section>
-            </article>
-          )
-        })}
-      </div>
+      <SEO title="All posts" />
+      <Header {...props} />
+      <main>
+        <div className={`container-fluid clear-top`}>
+          <div className={`container`}>
+            <div className={`row`}>
+              <div className={`col-lg-8 offset-lg-2`}>
+                <BigSearchDisplay />
+              </div>
+            </div>
+            <div className={`row pt-5`}>
+              <div className={`col-lg-8 offset-lg-2`}>
+                <div className={`row`}>
+                  {posts.map(({ node }) => {
+                    const title = node.frontmatter.title || node.fields.slug
+                    return (
+                      <div className={`col-md-6 col-12 mb-3`}>
+                        <Card key={`/blog/${node.fields.slug}`}>
+                          <Card.Body>
+                            <Card.Title>{title}</Card.Title>
+                            <Card.Subtitle className="mb-2 text-muted">
+                              {node.frontmatter.date}
+                            </Card.Subtitle>
+                            {/* <Card.Subtitle className="mb-2 text-muted">
+                  Card Subtitle
+                </Card.Subtitle> */}
+                            <Card.Text>
+                              {/* A demo design for mobile and desktop responsiveness */}
+                              <p
+                                dangerouslySetInnerHTML={{
+                                  __html:
+                                    node.frontmatter.description ||
+                                    node.excerpt,
+                                }}
+                              />
+                            </Card.Text>
+                            {/* card-link */}
+                            <Link
+                              className={`card-link btn btn-primary`}
+                              to={`/blog/${node.fields.slug}`}
+                            >
+                              Read
+                            </Link>
+                          </Card.Body>
+                        </Card>
+                      </div>
+                      // <article key={`/blog/${node.fields.slug}`}>
+                      //   <header>
+                      //     <h3>
+                      //       <Link
+                      //         style={{ boxShadow: `none` }}
+                      //         to={`/blog/${node.fields.slug}`}
+                      //       >
+                      //         {title}
+                      //       </Link>
+                      //     </h3>
+                      //     <small>{node.frontmatter.date}</small>
+                      //   </header>
+                      //   <section>
+                      //     <p
+                      //       dangerouslySetInnerHTML={{
+                      //         __html:
+                      //           node.frontmatter.description || node.excerpt,
+                      //       }}
+                      //     />
+                      //   </section>
+                      // </article>
+                    )
+                  })}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+      <div></div>
     </BlogContext.Provider>
   )
 }
 
 export default BlogIndex
-
-export const pageQuery = graphql`
-  query {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
-      edges {
-        node {
-          excerpt
-          fields {
-            slug
-          }
-          frontmatter {
-            date(formatString: "MMMM DD, YYYY")
-            title
-            description
-            tags
-          }
-        }
-      }
-    }
-  }
-`

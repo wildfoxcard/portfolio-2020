@@ -3,8 +3,8 @@ import AwesomeSlider from "react-awesome-slider"
 import { Link } from "gatsby"
 
 //components
-import Header from "./index/Header"
-import getMenu, { getSlide, getComponents } from "../utils/getMenu"
+import Header from "./Header"
+import getMenu, { getSlide, getComponents } from "../../utils/getMenu"
 
 //styles
 import CoreStyles from "react-awesome-slider/src/core/styles.scss"
@@ -13,7 +13,6 @@ import AnimationFallStyles from "react-awesome-slider/src/styled/fall-animation/
 import AnimationFoldOutStyles from "react-awesome-slider/src/styled/fold-out-animation/"
 import AnimationOpenStyles from "react-awesome-slider/src/styled/open-animation/"
 import AnimationScaleOutStyles from "react-awesome-slider/src/styled/scale-out-animation/"
-import s from "./index.module.scss"
 
 export const SlideSelected = React.createContext()
 
@@ -47,7 +46,7 @@ const Layout = props => {
             AnimationOpenStyles,
             AnimationScaleOutStyles,
           ]}
-          className={`${s.overlaySettings}`}
+          className={`overlay-settings`}
           bullets={false}
           selected={currentIndex}
           // startupScreen={props => {
@@ -68,7 +67,7 @@ const Layout = props => {
         >
           {getComponents(props).map((comp, i) => {
             return (
-              <div className={`${s.fullPage} ${s[`scene${i}`]}`} key={i}>
+              <div className={`full-page scene-${i}`} key={i}>
                 {comp}
               </div>
             )

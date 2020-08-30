@@ -1,5 +1,5 @@
 import React from "react"
-import Header from "../layouts/index/Header"
+import Header from "../layouts/slider/Header"
 
 const contact = props => {
   return (

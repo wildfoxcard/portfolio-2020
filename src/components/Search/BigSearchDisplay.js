@@ -24,15 +24,6 @@ function DisplayBig() {
             />
           ))}
       </div>
-
-      <div>
-        <small>
-          <em>Search Powered by - 
-            Wild Fox Card
-
-          </em>
-        </small>
-      </div>
     </div>
   )
 }

@@ -9,7 +9,7 @@ import BlogPage from "../pages/blog"
 import CodeBootcampPage from "../pages/code-bootcamp"
 import ContactPage from "../pages/contact"
 
-function getMenu() {
+export default function getMenu() {
   return menuJSON.items
 }
 
@@ -55,4 +55,8 @@ export const getComponents = props => {
   return componentArray
 }
 
-export default getMenu
+// {
+//   "title": "Projects",
+//   "link": "/projects/",
+//   "animation": "foldOutAnimation"
+// },

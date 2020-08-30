@@ -19,11 +19,16 @@
 }
 
 .image-wrapper {
-    margin-left: 40px;
+    display: inline-block;
     img {
         width: 80px;
     }
+}
 
+.brand {
+  display: inline-block;
+  margin: auto !important;
+  padding-top: 18px;
 }
 
 .nav-link-wrapper {
@@ -31,6 +36,7 @@
   justify-content: space-between;
   color: white;
   width: 700px;
+  margin-top: 18px;
   a {
     color: white;
     text-decoration: none;
@@ -48,8 +54,4 @@
   &:hover {
     background-color: #0000005c;
   }
-}
-
-.left {
-  float: left;
 }

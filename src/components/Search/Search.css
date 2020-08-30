@@ -13,7 +13,7 @@
   padding: 10px 0 20px;
 }
 
-.react-autosuggest__input {
+/* .react-autosuggest__input {
   width: 250px;
   height: 30px;
   padding: 10px;
@@ -22,7 +22,7 @@
   font-size: 16px;
   border: 1px solid #aaa;
   border-radius: 4px;
-}
+} */
 
 .react-autosuggest__input--focused {
   outline: none;

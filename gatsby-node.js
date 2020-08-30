@@ -62,3 +62,24 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     })
   }
 }
+
+//layouts
+exports.onCreatePage = ({ page, actions }) => {
+  const { createPage } = actions
+  const {path} = page
+
+
+  
+  if (path.substring(0,5) === "/blog" && path.length > 7) {
+    page.context.layout = "standard"
+    createPage(page);
+  }
+
+  if (page.path.substring(0,6) === "/demos" && path.length > 7) {
+    page.context.layout = "standard"
+    createPage(page);
+  }
+
+
+
+}

@@ -11,11 +11,6 @@
             "animation": "fallAnimation"
         },
         {
-            "title": "Projects",
-            "link": "/projects/",
-            "animation": "foldOutAnimation"
-        },
-        {
             "title": "Blog",
             "link": "/blog/",
             "animation": "openAnimation"
